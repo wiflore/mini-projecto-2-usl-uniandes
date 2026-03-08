@@ -7796,7 +7796,7 @@ a.anchor-link {
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fcd4041c">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c5148811">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7808,7 +7808,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=97d8848d">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6a92bf17">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7818,7 +7818,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=45bb9c82">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=cbe4fafd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7849,7 +7849,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1f5cce75">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b8118694">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7859,7 +7859,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=8ab9711b">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=52080603">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7895,21 +7895,21 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3effa6f5">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0ca2497d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="2.-Preparaci%C3%B3n-de-los-Textos-(Bag-of-Words-&amp;-TF-IDF)">2. Preparación de los Textos (Bag of Words &amp; TF-IDF)<a class="anchor-link" href="#2.-Preparaci%C3%B3n-de-los-Textos-(Bag-of-Words-&amp;-TF-IDF)">¶</a></h2><p>En lugar de usar modelos masivos como Transformers, nos apegaremos a <strong>Bolsa de Palabras (BOW)</strong> ponderado mediante <strong>TF-IDF</strong>.<br/>
-Se configurará un <code>TfidfVectorizer</code> incluyendo unigramas y bigramas (<code>ngram_range=(1,2)</code>) para captar mejor el contexto, pero <strong>limitaremos el vocabulario máximo (<code>max_features</code>) a 5000</strong>.</p>
+<h2 id="2.-Preparaci%C3%B3n-de-Textos-(Bag-of-Words-&amp;-TF-IDF)">2. Preparación de Textos (Bag of Words &amp; TF-IDF)<a class="anchor-link" href="#2.-Preparaci%C3%B3n-de-Textos-(Bag-of-Words-&amp;-TF-IDF)">¶</a></h2><p>Para la representación matricial de los textos utilizaremos el modelo <strong>Bag of Words</strong>, ponderado mediante la técnica <strong>TF-IDF (Term Frequency - Inverse Document Frequency)</strong>.
+Se instanciará el objeto <code>TfidfVectorizer</code> parametrizado con <code>ngram_range=(1,2)</code> para contemplar unigramas y bigramas, y así capturar dependencias secuenciales simples. Adicionalmente, se establecerá el hiperparámetro <code>max_features</code> a 5000.</p>
 <blockquote>
-<p><strong>Justificación Técnica:</strong> Limitar las <em>features</em> es vital para no explotar la memoria RAM en el paso posterior de XGBoost, lo cual también asegura que el modelo final exportado .pkl pueda correr ligero y de forma ágil en la aplicación interactiva.</p>
+<p><strong>Nota Técnica:</strong> La limitación a las 5,000 características más representativas se aplica uniformemente en el vectorizador para controlar la dimensionalidad del corpus. Esta decisión de preprocesamiento es crucial para asegurar la viabilidad computacional de los modelos subsiguientes, particularmente del ensamble de árboles (XGBoost), mitigando el riesgo de exceder la memoria RAM disponible o aumentar sustancialmente el coste de inferencia.</p>
 </blockquote>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=af057470">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ecbd5cde">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7958,27 +7958,7 @@ Se configurará un <code>TfidfVectorizer</code> incluyendo unigramas y bigramas 
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f237bf0b">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="3.-Evaluando-el-Trade-off:-Modelado-Lineal-vs-No-Lineal">3. Evaluando el Trade-off: Modelado Lineal vs No Lineal<a class="anchor-link" href="#3.-Evaluando-el-Trade-off:-Modelado-Lineal-vs-No-Lineal">¶</a></h2><p>Para justificar nuestra elección de algoritmo e incorporar la etapa de <strong>reducción de dimensionalidad</strong>, compararemos dos enfoques que reflejan un importante <em>trade-off</em> típico del Procesamiento de Lenguaje Natural:</p>
-<ol>
-<li><strong>Regresión Logística (Línea Base Lineal sin Reducción):</strong> Como modelo puramente lineal (y uno de los más clásicos para texto), puede manejar matrices esparcidas enormes sin mucha carga de memoria. Esto nos permitiría aprovechar el <strong>vocabulario completo</strong> o casi completo (gran contexto literal).</li>
-<li><strong>XGBoost con TruncatedSVD (Modelo No Lineal Reducido):</strong> Un ensamblaje de árboles es excelente capturando relaciones complejas entre palabras, pero cada regla dentro del árbol ocupa memoria. A esto sumamos que el espacio original (5.000 características) es demasiado grande para hacer árboles densos rápidos.</li>
-</ol>
-<p>La rúbrica indica aplicar un algoritmo de reducción de la dimensionalidad. Aquí es donde <strong>Truncated SVD</strong> entra en juego.</p>
-<blockquote>
-<p><strong>Justificación Reducción Dimensionalidad (Truncated SVD):</strong> El temario menciona <em>el análisis de componentes principales (PCA) y sus variantes</em>. Standard PCA centrado no es aplicable nativamente a matrices esparcidas (sparse matrices) devueltas por TF-IDF sin agotar docenas de GB de RAM. <code>TruncatedSVD</code> es matemáticamente la variante exacta enseñada para datos dispersos (también conocida como LSA o Análisis Semántico Latente).</p>
-</blockquote>
-<p>Entrenaremos la Regresión Logística directa para ver el Baseline, y luego entrenaremos XGBoost filtrando el texto previamente por una reducción TruncatedSVD a 300 componentes y evaluaremos los resultados finales.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=78e63a1a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=97ad3f85">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7997,7 +7977,27 @@ Se configurará un <code>TfidfVectorizer</code> incluyendo unigramas y bigramas 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=34657a49">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4b8adb26">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="3.-Discusi%C3%B3n-Metodol%C3%B3gica:-Modelado-Lineal-vs-No-Lineal">3. Discusión Metodológica: Modelado Lineal vs No Lineal<a class="anchor-link" href="#3.-Discusi%C3%B3n-Metodol%C3%B3gica:-Modelado-Lineal-vs-No-Lineal">¶</a></h2><p>Con el objetivo de clasificar los ODS e integrar el fundamento de reducción de la dimensionalidad, planteamos la comparación de dos aproximaciones clásicas en el Procesamiento de Lenguaje Natural:</p>
+<ol>
+<li><strong>Regresión Logística (Línea Base Lineal):</strong> Como modelo lineal estándar para problemas multiclase, presenta una notoria eficiencia computacional al procesar matrices dispersas de alta dimensionalidad (sparse matrices). Esto nos permite entrenar directamente sobre el vocabulario de 5,000 características extrayendo los coeficientes lineales.</li>
+<li><strong>XGBoost posterior a reducción SVD (Abordaje No Lineal):</strong> Los métodos de ensamblaje basados en árboles poseen alta capacidad para modelar relaciones no lineales. Sin embargo, su desempeño y tiempo de entrenamiento degradan exponencialmente frente a espacios vectoriales con miles de dimensiones.</li>
+</ol>
+<p>Para resolver el problema de la dimensionalidad exigido antes de la ingesta en XGBoost, implementaremos <strong>Truncated SVD</strong>.</p>
+<blockquote>
+<p><strong>Justificación de Reducción de Dimensionalidad:</strong> De acuerdo a los conceptos matemáticos sobre Análisis de Componentes Principales (PCA), sabemos que la versión estándar de PCA requiere centrar los datos, acción computacionalmente prohibitiva cuando se trabaja con matrices dispersas (TF-IDF). Por tanto, <code>TruncatedSVD</code> (también conocido como Análisis Semántico Latente o LSA) se emplea como el análogo idóneo para datos esparsos, permitiendo reducir la dimensionalidad sin destruir la estructura original de sparsity.</p>
+</blockquote>
+<p>A continuación, procedemos con el entrenamiento de ambos enfoques, comparando su exactitud.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=07aaa0af">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8066,7 +8066,7 @@ Se configurará un <code>TfidfVectorizer</code> incluyendo unigramas y bigramas 
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1655efc3">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=efe9a96a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8085,7 +8085,7 @@ Se configurará un <code>TfidfVectorizer</code> incluyendo unigramas y bigramas 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ffd6d83d">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=4b7df951">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8142,7 +8142,7 @@ Se configurará un <code>TfidfVectorizer</code> incluyendo unigramas y bigramas 
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=84442294">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2e227b9d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8152,7 +8152,7 @@ Se configurará un <code>TfidfVectorizer</code> incluyendo unigramas y bigramas 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=197111e8">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=878f3319">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8197,7 +8197,7 @@ Se configurará un <code>TfidfVectorizer</code> incluyendo unigramas y bigramas 
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8945cf64">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a5378e5e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8209,7 +8209,7 @@ Estos artefactos serán consumidos por nuestro script <code>app.py</code> que co
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=e1a71d11">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=24dee478">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
