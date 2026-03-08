@@ -7796,7 +7796,7 @@ a.anchor-link {
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=101b9d1c">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fcd4041c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7808,7 +7808,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4d1e07da">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=97d8848d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7818,7 +7818,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=222c7e1f">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=45bb9c82">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7849,7 +7849,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9a76ae28">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1f5cce75">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7859,7 +7859,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3e3d269e">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=8ab9711b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7867,10 +7867,11 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Cargar datos</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">"Train_textosODS.xlsx"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Dataset cargado exitosamente. Tamaño:"</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## 2. Preparación de Textos (Bag of Words &amp; TF-IDF)</span>
+<span class="n">Para</span> <span class="n">la</span> <span class="n">representación</span> <span class="n">matricial</span> <span class="n">de</span> <span class="n">los</span> <span class="n">textos</span> <span class="n">utilizaremos</span> <span class="n">el</span> <span class="n">modelo</span> <span class="o">**</span><span class="n">Bag</span> <span class="n">of</span> <span class="n">Words</span><span class="o">**</span><span class="p">,</span> <span class="n">ponderado</span> <span class="n">mediante</span> <span class="n">la</span> <span class="n">técnica</span> <span class="o">**</span><span class="n">TF</span><span class="o">-</span><span class="n">IDF</span> <span class="p">(</span><span class="n">Term</span> <span class="n">Frequency</span> <span class="o">-</span> <span class="n">Inverse</span> <span class="n">Document</span> <span class="n">Frequency</span><span class="p">)</span><span class="o">**.</span>
+<span class="n">Se</span> <span class="n">instanciará</span> <span class="n">el</span> <span class="n">objeto</span> <span class="err">`</span><span class="n">TfidfVectorizer</span><span class="err">`</span> <span class="n">parametrizado</span> <span class="n">con</span> <span class="err">`</span><span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="err">`</span> <span class="n">para</span> <span class="n">contemplar</span> <span class="n">unigramas</span> <span class="n">y</span> <span class="n">bigramas</span><span class="p">,</span> <span class="n">y</span> <span class="n">así</span> <span class="n">capturar</span> <span class="n">dependencias</span> <span class="n">secuenciales</span> <span class="n">simples</span><span class="o">.</span> <span class="n">Adicionalmente</span><span class="p">,</span> <span class="n">se</span> <span class="n">establecerá</span> <span class="n">el</span> <span class="n">hiperparámetro</span> <span class="err">`</span><span class="n">max_features</span><span class="err">`</span> <span class="n">a</span> <span class="mf">5000.</span>
+
+<span class="o">&gt;</span> <span class="o">**</span><span class="n">Nota</span> <span class="n">Técnica</span><span class="p">:</span><span class="o">**</span> <span class="n">La</span> <span class="n">limitación</span> <span class="n">a</span> <span class="n">las</span> <span class="mi">5</span><span class="p">,</span><span class="mi">000</span> <span class="n">características</span> <span class="n">más</span> <span class="n">representativas</span> <span class="n">se</span> <span class="n">aplica</span> <span class="n">uniformemente</span> <span class="n">en</span> <span class="n">el</span> <span class="n">vectorizador</span> <span class="n">para</span> <span class="n">controlar</span> <span class="n">la</span> <span class="n">dimensionalidad</span> <span class="k">del</span> <span class="n">corpus</span><span class="o">.</span> <span class="n">Esta</span> <span class="n">decisión</span> <span class="n">de</span> <span class="n">preprocesamiento</span> <span class="n">es</span> <span class="n">crucial</span> <span class="n">para</span> <span class="n">asegurar</span> <span class="n">la</span> <span class="n">viabilidad</span> <span class="n">computacional</span> <span class="n">de</span> <span class="n">los</span> <span class="n">modelos</span> <span class="n">subsiguientes</span><span class="p">,</span> <span class="n">particularmente</span> <span class="k">del</span> <span class="n">ensamble</span> <span class="n">de</span> <span class="n">árboles</span> <span class="p">(</span><span class="n">XGBoost</span><span class="p">),</span> <span class="n">mitigando</span> <span class="n">el</span> <span class="n">riesgo</span> <span class="n">de</span> <span class="n">exceder</span> <span class="n">la</span> <span class="n">memoria</span> <span class="n">RAM</span> <span class="n">disponible</span> <span class="n">o</span> <span class="n">aumentar</span> <span class="n">sustancialmente</span> <span class="n">el</span> <span class="n">coste</span> <span class="n">de</span> <span class="n">inferencia</span><span class="o">.</span>
 </pre></div>
 </div>
 </div>
@@ -7882,71 +7883,19 @@ a.anchor-link {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Dataset cargado exitosamente. Tamaño: (9656, 2)
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>
+  <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[2]</span><span class="ansi-green-fg">, line 2</span>
+<span class="ansi-red-fg">    </span><span class="ansi-red-fg">Para la representación matricial de los textos utilizaremos el modelo **Bag of Words**, ponderado mediante la técnica **TF-IDF (Term Frequency - Inverse Document Frequency)**.</span>
+         ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
 </pre>
 </div>
 </div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<div>
-<style scoped="">
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>textos</th>
-<th>ODS</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>"Aprendizaje" y "educación" se consideran sinó...</td>
-<td>4</td>
-</tr>
-<tr>
-<th>1</th>
-<td>No dejar clara la naturaleza de estos riesgos ...</td>
-<td>6</td>
-</tr>
-<tr>
-<th>2</th>
-<td>Como resultado, un mayor y mejorado acceso al ...</td>
-<td>13</td>
-</tr>
-<tr>
-<th>3</th>
-<td>Con el Congreso firmemente en control de la ju...</td>
-<td>16</td>
-</tr>
-<tr>
-<th>4</th>
-<td>Luego, dos secciones finales analizan las impl...</td>
-<td>5</td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f8169f11">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3effa6f5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7960,7 +7909,7 @@ Se configurará un <code>TfidfVectorizer</code> incluyendo unigramas y bigramas 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=426526d3">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=af057470">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7993,16 +7942,23 @@ Se configurará un <code>TfidfVectorizer</code> incluyendo unigramas y bigramas 
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Conjunto de entrenamiento: 7724 muestras
-Conjunto de prueba: 1932 muestras
-</pre>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[3]</span><span class="ansi-green-fg">, line 2</span>
+<span class="ansi-green-fg">      1</span> <span style="color: rgb(95,135,135)"># Separamos las variables independientes (X) y dependientes (y)</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> X = <span class="ansi-yellow-bg">df</span>[<span class="ansi-yellow-fg">'</span><span class="ansi-yellow-fg">textos</span><span class="ansi-yellow-fg">'</span>]
+<span class="ansi-green-fg">      4</span> <span style="color: rgb(95,135,135)"># Es fundamental codificar las etiquetas de ODS a números (0 a 16) para que XGBoost funcione.</span>
+<span class="ansi-green-fg">      5</span> label_encoder = LabelEncoder()
+
+<span class="ansi-red-fg">NameError</span>: name 'df' is not defined</pre>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c6698bba">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f237bf0b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8022,21 +7978,26 @@ Conjunto de prueba: 1932 muestras
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d6f29743">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=78e63a1a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="2.-Preparaci%C3%B3n-de-Textos-(Bag-of-Words-&amp;-TF-IDF)">2. Preparación de Textos (Bag of Words &amp; TF-IDF)<a class="anchor-link" href="#2.-Preparaci%C3%B3n-de-Textos-(Bag-of-Words-&amp;-TF-IDF)">¶</a></h2><p>Para la representación matricial de los textos utilizaremos el modelo <strong>Bag of Words</strong>, ponderado mediante la técnica <strong>TF-IDF (Term Frequency - Inverse Document Frequency)</strong>.
-Se instanciará el objeto <code>TfidfVectorizer</code> parametrizado con <code>ngram_range=(1,2)</code> para contemplar unigramas y bigramas, y así capturar dependencias secuenciales simples. Adicionalmente, se establecerá el hiperparámetro <code>max_features</code> a 5000.</p>
+<h2 id="3.-Discusi%C3%B3n-Metodol%C3%B3gica:-Modelado-Lineal-vs-No-Lineal">3. Discusión Metodológica: Modelado Lineal vs No Lineal<a class="anchor-link" href="#3.-Discusi%C3%B3n-Metodol%C3%B3gica:-Modelado-Lineal-vs-No-Lineal">¶</a></h2><p>Con el objetivo de clasificar los ODS e integrar el fundamento de reducción de la dimensionalidad, planteamos la comparación de dos aproximaciones clásicas en el Procesamiento de Lenguaje Natural:</p>
+<ol>
+<li><strong>Regresión Logística (Línea Base Lineal):</strong> Como modelo lineal estándar para problemas multiclase, presenta una notoria eficiencia computacional al procesar matrices dispersas de alta dimensionalidad (sparse matrices). Esto nos permite entrenar directamente sobre el vocabulario de 5,000 características extrayendo los coeficientes lineales.</li>
+<li><strong>XGBoost posterior a reducción SVD (Abordaje No Lineal):</strong> Los métodos de ensamblaje basados en árboles poseen alta capacidad para modelar relaciones no lineales. Sin embargo, su desempeño y tiempo de entrenamiento degradan exponencialmente frente a espacios vectoriales con miles de dimensiones.</li>
+</ol>
+<p>Para resolver el problema de la dimensionalidad exigido antes de la ingesta en XGBoost, implementaremos <strong>Truncated SVD</strong>.</p>
 <blockquote>
-<p><strong>Nota Técnica:</strong> La limitación a las 5,000 características más representativas se aplica uniformemente en el vectorizador para controlar la dimensionalidad del corpus. Esta decisión de preprocesamiento es crucial para asegurar la viabilidad computacional de los modelos subsiguientes, particularmente del ensamble de árboles (XGBoost), mitigando el riesgo de exceder la memoria RAM disponible o aumentar sustancialmente el coste de inferencia.</p>
+<p><strong>Justificación de Reducción de Dimensionalidad:</strong> De acuerdo a los conceptos matemáticos sobre Análisis de Componentes Principales (PCA), sabemos que la versión estándar de PCA requiere centrar los datos, acción computacionalmente prohibitiva cuando se trabaja con matrices dispersas (TF-IDF). Por tanto, <code>TruncatedSVD</code> (también conocido como Análisis Semántico Latente o LSA) se emplea como el análogo idóneo para datos esparsos, permitiendo reducir la dimensionalidad sin destruir la estructura original de sparsity.</p>
 </blockquote>
+<p>A continuación, procedemos con el entrenamiento de ambos enfoques, comparando su exactitud.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6bec7f0b">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=34657a49">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8081,22 +8042,31 @@ Se instanciará el objeto <code>TfidfVectorizer</code> parametrizado con <code>n
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Iniciando Búsqueda de Hiperparámetros (RandomizedSearchCV) para XGBoost...
-Fitting 3 folds for each of 3 candidates, totalling 9 fits
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Mejores parámetros XGBoost: {'clf__n_estimators': 100, 'clf__max_depth': 5}
-Exactitud (Accuracy) XGBoost (con SVD): 0.8038
-</pre>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[4]</span><span class="ansi-green-fg">, line 19</span>
+<span class="ansi-green-fg">     14</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Iniciando Búsqueda de Hiperparámetros (RandomizedSearchCV) para XGBoost...</span><span class="ansi-yellow-fg">"</span>)
+<span class="ansi-green-fg">     15</span> random_search = RandomizedSearchCV(
+<span class="ansi-green-fg">     16</span>     pipeline_xgb, param_distributions=param_grid, n_iter=<span class="ansi-green-fg">3</span>, cv=<span class="ansi-green-fg">3</span>, random_state=<span class="ansi-green-fg">42</span>, verbose=<span class="ansi-green-fg">2</span>, n_jobs=-<span class="ansi-green-fg">1</span>
+<span class="ansi-green-fg">     17</span> )
+<span class="ansi-green-fg">---&gt; </span><span class="ansi-green-fg">19</span> random_search.fit(<span class="ansi-yellow-bg">X_train</span>, y_train)
+<span class="ansi-green-fg">     20</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-fg">f</span><span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Mejores parámetros XGBoost: </span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>random_search.best_params_<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span class="ansi-yellow-fg">"</span>)
+<span class="ansi-green-fg">     22</span> y_pred_xgb = random_search.predict(X_test)
+
+<span class="ansi-red-fg">NameError</span>: name 'X_train' is not defined</pre>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bde102df">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1655efc3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8115,7 +8085,7 @@ Exactitud (Accuracy) XGBoost (con SVD): 0.8038
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c49e93ac">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ffd6d83d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8162,17 +8132,17 @@ Exactitud (Accuracy) XGBoost (con SVD): 0.8038
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[5]</span><span class="ansi-green-fg">, line 2</span>
 <span class="ansi-green-fg">      1</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">--- Reporte Clasificación (Regresión Logística Base) ---</span><span class="ansi-yellow-fg">"</span>)
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> <span style="color: rgb(0,135,0)">print</span>(classification_report(y_test, <span class="ansi-yellow-bg">y_pred_lr</span>, target_names=[<span style="color: rgb(0,135,0)">str</span>(i) <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> i <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> label_encoder.classes_]))
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> <span style="color: rgb(0,135,0)">print</span>(classification_report(<span class="ansi-yellow-bg">y_test</span>, y_pred_lr, target_names=[<span style="color: rgb(0,135,0)">str</span>(i) <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> i <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> label_encoder.classes_]))
 <span class="ansi-green-fg">      4</span> fig, ax = plt.subplots(<span class="ansi-green-fg">1</span>, <span class="ansi-green-fg">2</span>, figsize=(<span class="ansi-green-fg">20</span>, <span class="ansi-green-fg">8</span>))
 <span class="ansi-green-fg">      5</span> sns.heatmap(confusion_matrix(y_test, y_pred_lr), annot=<span class="ansi-bold" style="color: rgb(0,135,0)">False</span>, cmap=<span class="ansi-yellow-fg">'</span><span class="ansi-yellow-fg">Blues</span><span class="ansi-yellow-fg">'</span>, ax=ax[<span class="ansi-green-fg">0</span>])
 
-<span class="ansi-red-fg">NameError</span>: name 'y_pred_lr' is not defined</pre>
+<span class="ansi-red-fg">NameError</span>: name 'y_test' is not defined</pre>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=992a0b2d">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=84442294">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8182,7 +8152,7 @@ Exactitud (Accuracy) XGBoost (con SVD): 0.8038
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=569f12b9">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=197111e8">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8227,7 +8197,7 @@ Exactitud (Accuracy) XGBoost (con SVD): 0.8038
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=318ed7aa">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8945cf64">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8239,7 +8209,7 @@ Estos artefactos serán consumidos por nuestro script <code>app.py</code> que co
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=9c912eae">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=e1a71d11">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
