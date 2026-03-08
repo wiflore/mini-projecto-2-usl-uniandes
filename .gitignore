@@ -1,0 +1,10 @@
+venv/
+__pycache__/
+.ipynb_checkpoints/
+.agents/
+*.xlsx
+*.md
+!README.md
+!walkthrough.md
+test_data.py
+*.log
